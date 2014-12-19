@@ -1,4 +1,4 @@
-package com.guigarage.responsive;
+package com.canoo.responsivefx;
 
 import javafx.beans.property.StringProperty;
 import javafx.collections.ListChangeListener;
