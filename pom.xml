@@ -10,7 +10,7 @@
 
     <groupId>com.guigarage</groupId>
     <artifactId>responsivefx</artifactId>
-    <version>0.8-SNAPSHOT</version>
+    <version>0.8</version>
     <name>ResponsiveFX</name>
 
     <properties>
