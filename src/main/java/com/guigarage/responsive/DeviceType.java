@@ -11,7 +11,7 @@ import java.util.List;
  * Created by hendrikebbers on 01.09.14.
  */
 public enum DeviceType {
-    EXTRA_SMALL, SMALL, MEDIUM, LARGE, NONE;
+    EXTRA_SMALL, SMALL, MEDIUM, LARGE, XLARGE, NONE;
 
     public static final String STYLESHEET_XS = "skin-xs.css";
 
@@ -21,11 +21,19 @@ public enum DeviceType {
 
     public static final String STYLESHEET_LG = "skin-lg.css";
 
+    public static final String STYLESHEET_XL = "skin-xl.css";
+
+
     public static final double MAX_SIZE_XS = 400;
 
     public static final double MAX_SIZE_SM = 768;
 
     public static final double MAX_SIZE_MD = 979;
+
+    public static final double MAX_SIZE_LG = 1366;
+
+    public static final double MAX_SIZE_XL = 1920;
+
 
     public static final PseudoClass PSEUDO_CLASS_XS = PseudoClass.getPseudoClass("extreme-small-device");
 
@@ -35,36 +43,24 @@ public enum DeviceType {
 
     public static final PseudoClass PSEUDO_CLASS_LG = PseudoClass.getPseudoClass("large-device");
 
-    public static final String STYLE_CLASS_XS_HIDDEN = "hidden-xs";
-
-    public static final String STYLE_CLASS_SM_HIDDEN = "hidden-sm";
-
-    public static final String STYLE_CLASS_MD_HIDDEN = "hidden-md";
-
-    public static final String STYLE_CLASS_LG_HIDDEN = "hidden-lg";
-
-    public static final String STYLE_CLASS_XS_VISIBLE = "visible-xs";
-
-    public static final String STYLE_CLASS_SM_VISIBLE = "visible-sm";
-
-    public static final String STYLE_CLASS_MD_VISIBLE = "visible-md";
-
-    public static final String STYLE_CLASS_LG_VISIBLE = "visible-lg";
+    public static final PseudoClass PSEUDO_CLASS_XL = PseudoClass.getPseudoClass("extrem-large-device");
 
     public static DeviceType getForWidth(double width) {
-        if(width < MAX_SIZE_XS) {
-            return EXTRA_SMALL;
-        } else if(width < MAX_SIZE_SM) {
-            return SMALL;
-        } else if(width < MAX_SIZE_MD) {
-            return MEDIUM;
-        } else {
+
+        if(width > MAX_SIZE_XL)
+            return XLARGE;
+        else if(width > MAX_SIZE_LG)
             return LARGE;
-        }
+        else if(width > MAX_SIZE_MD)
+            return MEDIUM;
+        else if(width > MAX_SIZE_SM)
+            return SMALL;
+        else
+            return EXTRA_SMALL;
     }
 
     public static List<PseudoClass> getAllClasses() {
-        return new ArrayList<>(Arrays.asList(PSEUDO_CLASS_XS, PSEUDO_CLASS_SM, PSEUDO_CLASS_MD, PSEUDO_CLASS_LG));
+        return new ArrayList<>(Arrays.asList(PSEUDO_CLASS_XS, PSEUDO_CLASS_SM, PSEUDO_CLASS_MD, PSEUDO_CLASS_LG, PSEUDO_CLASS_XL));
     }
 
     public List<PseudoClass> getInactiveClasses() {
@@ -80,8 +76,11 @@ public enum DeviceType {
             return Collections.singletonList(PSEUDO_CLASS_SM);
         } else if(this.equals(MEDIUM)) {
             return Collections.singletonList(PSEUDO_CLASS_MD);
-        } else {
+        } else if(this.equals(LARGE)) {
             return Collections.singletonList(PSEUDO_CLASS_LG);
+        }
+        else {
+            return Collections.singletonList(PSEUDO_CLASS_XL);
         }
     }
 
@@ -92,8 +91,10 @@ public enum DeviceType {
             return DeviceType.class.getResource(STYLESHEET_SM).toExternalForm();
         } else if(this.equals(MEDIUM)) {
             return DeviceType.class.getResource(STYLESHEET_MD).toExternalForm();
-        } else {
+        } else if(this.equals(LARGE)) {
             return DeviceType.class.getResource(STYLESHEET_LG).toExternalForm();
+        } else {
+            return DeviceType.class.getResource(STYLESHEET_XL).toExternalForm();
         }
     }
 }

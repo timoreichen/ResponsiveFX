@@ -1,17 +1,17 @@
 /* This is an internal CSS file that is used to define the supported style classes for a medium application size.
 Normally an application developer should not use this file. */
+.visible-xl {
+    visibility: collapse;
+}
 .visible-lg {
     visibility: collapse;
 }
-
 .visible-sm {
     visibility: collapse;
 }
-
 .visible-xs {
     visibility: collapse;
 }
-
 .visible-md {
     visibility: visible;
 }
@@ -19,11 +19,15 @@ Normally an application developer should not use this file. */
 .hidden-xs {
     visibility: visible;
 }
-
 .hidden-sm {
     visibility: visible;
 }
-
 .hidden-lg {
     visibility: visible;
+}
+.hidden-xl {
+    visibility: visible;
+}
+.hidden-md {
+    visibility: collapse;
 }

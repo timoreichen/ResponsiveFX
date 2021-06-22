@@ -1,5 +1,8 @@
-/* This is an internal CSS file that is used to define the supported style classes for a extra small application size.
+/* This is an internal CSS file that is used to define the supported style classes for a large application size.
 Normally an application developer should not use this file. */
+.visible-xs {
+    visibility: collapse;
+}
 .visible-sm {
     visibility: collapse;
 }
@@ -10,12 +13,12 @@ Normally an application developer should not use this file. */
     visibility: collapse;
 }
 .visible-xl {
-    visibility: collapse;
-}
-.visible-xs {
     visibility: visible;
 }
 
+.hidden-xs {
+    visibility: visible;
+}
 .hidden-sm {
     visibility: visible;
 }
@@ -26,8 +29,5 @@ Normally an application developer should not use this file. */
     visibility: visible;
 }
 .hidden-xl {
-    visibility: visible;
-}
-.hidden-xs {
     visibility: collapse;
 }

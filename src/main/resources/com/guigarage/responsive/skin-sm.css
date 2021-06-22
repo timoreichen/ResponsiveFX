@@ -3,15 +3,15 @@ Normally an application developer should not use this file. */
 .visible-xs {
     visibility: collapse;
 }
-
 .visible-md {
     visibility: collapse;
 }
-
 .visible-lg {
     visibility: collapse;
 }
-
+.visible-xl {
+    visibility: collapse;
+}
 .visible-sm {
     visibility: visible;
 }
@@ -19,15 +19,15 @@ Normally an application developer should not use this file. */
 .hidden-xs {
     visibility: visible;
 }
-
 .hidden-md {
     visibility: visible;
 }
-
 .hidden-lg {
     visibility: visible;
 }
-
+.hidden-xl {
+    visibility: visible;
+}
 .hidden-sm {
     visibility: collapse;
 }
